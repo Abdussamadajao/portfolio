@@ -92,8 +92,7 @@ const About = () => {
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
                 </div>
-
-                {/* Floating Badge */}
+                {/* Floating Badge
                 <motion.div
                   animate={{ y: [-5, 5, -5] }}
                   transition={{
@@ -104,7 +103,7 @@ const About = () => {
                   className="absolute -top-4 -right-4 bg-gradient-to-r from-primary to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg"
                 >
                   Available for Work
-                </motion.div>
+                </motion.div> */}
               </div>
             </div>
 

@@ -28,7 +28,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center relative overflow-hidden mt-20 md:mt-0"
+      className="min-h-screen flex items-center relative overflow-hidden mt-20 lg:mt-0"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
@@ -67,7 +67,7 @@ const Hero = () => {
             className="space-y-8"
           >
             {/* Status Badge */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -75,7 +75,7 @@ const Hero = () => {
             >
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               <span>Available for opportunities</span>
-            </motion.div>
+            </motion.div> */}
 
             {/* Main Heading */}
             <motion.div

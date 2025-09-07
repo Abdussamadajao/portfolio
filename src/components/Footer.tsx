@@ -175,9 +175,9 @@ const Footer = () => {
               className="flex flex-col sm:flex-row items-center justify-between gap-4"
             >
               <p className="text-muted-foreground text-sm text-center sm:text-left">
-                © {new Date().getFullYear()} Ajao Abdus-samad. Made with{" "}
-                <Heart className="inline h-4 w-4 text-red-500 animate-pulse" />{" "}
-                using React, TypeScript, and Tailwind CSS.
+                © {new Date().getFullYear()} Ajao Abdus-samad.
+                {/* <Heart className="inline h-4 w-4 text-red-500 animate-pulse" />{" "}
+                using React, TypeScript, and Tailwind CSS. */}
               </p>
 
               <Button

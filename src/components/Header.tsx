@@ -59,15 +59,15 @@ const Header = () => {
               </div>
               <div className="absolute -inset-1 bg-gradient-to-br from-primary via-emerald-500 to-teal-600 rounded-2xl blur opacity-30"></div>
             </div>
-            <div className="hidden sm:block">
+            {/* <div className="hidden lg:block">
               <span className="font-bold text-2xl bg-gradient-to-r from-primary via-emerald-500 to-teal-600 bg-clip-text text-transparent">
                 Ajao Abdus-samad
               </span>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}
@@ -110,7 +110,7 @@ const Header = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`md:hidden w-12 h-12 rounded-2xl transition-all duration-300 ${
+              className={`lg:hidden w-12 h-12 rounded-2xl transition-all duration-300 ${
                 scrolled
                   ? "glass hover:bg-white/20 border border-white/20"
                   : "bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm"
