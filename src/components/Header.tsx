@@ -3,11 +3,13 @@ import { Button } from "./ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,20 +20,25 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (location.pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // If not on home page, navigate to home and then scroll
+      window.location.href = `/#${sectionId}`;
     }
     setIsMenuOpen(false);
   };
 
   const navItems = [
-    { name: "Home", id: "home" },
-    { name: "About", id: "about" },
-    { name: "Experience", id: "experience" },
-    { name: "Skills", id: "skills" },
-    { name: "Projects", id: "projects" },
-    { name: "Contact", id: "contact" },
+    { name: "Home", id: "home", path: "/" },
+    { name: "About", id: "about", path: "/#about" },
+    { name: "Experience", id: "experience", path: "/#experience" },
+    { name: "Skills", id: "skills", path: "/#skills" },
+    { name: "Projects", id: "projects", path: "/projects" },
+    { name: "Contact", id: "contact", path: "/#contact" },
   ];
 
   return (
@@ -59,27 +66,35 @@ const Header = () => {
               </div>
               <div className="absolute -inset-1 bg-gradient-to-br from-primary via-emerald-500 to-teal-600 rounded-2xl blur opacity-30"></div>
             </div>
-            {/* <div className="hidden lg:block">
-              <span className="font-bold text-2xl bg-gradient-to-r from-primary via-emerald-500 to-teal-600 bg-clip-text text-transparent">
-                Ajao Abdus-samad
-              </span>
-            </div> */}
           </motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item, index) => (
-              <motion.button
+              <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                onClick={() => scrollToSection(item.id)}
-                className="relative group text-foreground/80 hover:text-foreground transition-colors duration-300 font-medium"
               >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-600 group-hover:w-full transition-all duration-300"></span>
-              </motion.button>
+                {item.id === "projects" ? (
+                  <Link
+                    to={item.path}
+                    className="relative group text-foreground/80 hover:text-foreground transition-colors duration-300 font-medium"
+                  >
+                    {item.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-600 group-hover:w-full transition-all duration-300"></span>
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => scrollToSection(item.id)}
+                    className="relative group text-foreground/80 hover:text-foreground transition-colors duration-300 font-medium"
+                  >
+                    {item.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-teal-600 group-hover:w-full transition-all duration-300"></span>
+                  </button>
+                )}
+              </motion.div>
             ))}
           </nav>
 
@@ -100,7 +115,7 @@ const Header = () => {
                 {theme === "dark" ? (
                   <Sun className="h-5 w-5 text-yellow-400" />
                 ) : (
-                  <Moon className="h-5 w-5 text-blue-600" />
+                  <Moon className="h-5 w-5 text-emerald-600" />
                 )}
               </Button>
             </motion.div>
@@ -136,16 +151,29 @@ const Header = () => {
             >
               <div className="p-6 space-y-4">
                 {navItems.map((item, index) => (
-                  <motion.button
+                  <motion.div
                     key={item.id}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    onClick={() => scrollToSection(item.id)}
-                    className="block w-full text-left py-3 px-4 rounded-xl hover:bg-white/10 transition-all duration-300 font-medium"
                   >
-                    {item.name}
-                  </motion.button>
+                    {item.id === "projects" ? (
+                      <Link
+                        to={item.path}
+                        className="block w-full text-left py-3 px-4 rounded-xl hover:bg-white/10 transition-all duration-300 font-medium"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => scrollToSection(item.id)}
+                        className="block w-full text-left py-3 px-4 rounded-xl hover:bg-white/10 transition-all duration-300 font-medium"
+                      >
+                        {item.name}
+                      </button>
+                    )}
+                  </motion.div>
                 ))}
               </div>
             </motion.div>

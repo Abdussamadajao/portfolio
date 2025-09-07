@@ -147,13 +147,24 @@ export const projects: IProject[] = [
   },
   {
     id: 4,
-    name: "Pick Bazar E-Commerce Clone",
-    description: "E-Commerce web application clone",
-    image_path: projectImages["Pick Bazar E-Commerce Clone"],
-    deployed_url: "https://pick-bazar-clone.vercel.app/",
-    category: ["nextJs", "firebase"],
-    github_url: "https://github.com/Abdussamadajao/pick-bazar-clone",
-    key_techs: ["nextJs", "Tailwind", "Context Api", "react"],
+    name: "SnapBazaar",
+    description:
+      "SnapBazaar is a modern e-commerce platform that provides a seamless online shopping experience with advanced features like real-time cart management, multiple payment options including Stripe integration, express delivery options, and comprehensive order tracking. Built with cutting-edge React technologies, Prisma ORM for database management, and modern UI components.",
+    image_path: projectImages["Snap-bazaar"], // You'd need to add this
+    deployed_url: "https://snap-bazaar.vercel.app", // Based on the meta tags
+    category: ["react", "typescript", "tailwind", "vite", "prisma"],
+    github_url: "https://github.com/Abdussamadajao/snap-bazaar", // Add your GitHub URL
+    key_techs: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "Prisma",
+      "Stripe",
+      "Better Auth",
+      "Zustand",
+      "React Query",
+    ],
   },
   {
     id: 5,

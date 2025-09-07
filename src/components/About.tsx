@@ -21,7 +21,7 @@ const About = () => {
   const achievements = [
     { icon: Star, text: "5+ Projects Completed", color: "text-yellow-500" },
     { icon: Award, text: "100% Success Rate", color: "text-green-500" },
-    { icon: Rocket, text: "3+ Years Experience", color: "text-blue-500" },
+    { icon: Rocket, text: "3+ Years Experience", color: "text-emerald-500" },
     { icon: Users, text: "Client Satisfaction", color: "text-purple-500" },
   ];
 

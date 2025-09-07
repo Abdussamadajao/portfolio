@@ -15,25 +15,25 @@ const Footer = () => {
       name: "LinkedIn",
       icon: FiLinkedin,
       url: "https://linkedin.com/in/ajaoabdussamad",
-      color: "hover:text-blue-400",
+      color: "hover:text-emerald-400",
     },
     {
       name: "Instagram",
       icon: FiInstagram,
       url: "https://www.instagram.com/abdussamadajao/",
-      color: "hover:text-blue-400",
+      color: "hover:text-emerald-400",
     },
     {
       name: "Facebook",
       icon: FiFacebook,
       url: "https://web.facebook.com/abdussamad.ajao/",
-      color: "hover:text-blue-400",
+      color: "hover:text-emerald-400",
     },
     {
       name: "X",
       icon: FaXTwitter,
       url: "https://x.com/AbdussamadAjao",
-      color: "hover:text-blue-400",
+      color: "hover:text-emerald-400",
     },
   ];
 
@@ -76,12 +76,12 @@ const Footer = () => {
             >
               <div className="flex items-center space-x-3">
                 <div className="relative">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary via-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary via-emerald-600 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg">
                     <span className="text-white font-bold text-xl">A</span>
                   </div>
-                  <div className="absolute -inset-1 bg-gradient-to-br from-primary via-blue-600 to-purple-600 rounded-2xl blur opacity-30"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-br from-primary via-emerald-600 to-teal-600 rounded-2xl blur opacity-30"></div>
                 </div>
-                <span className="font-bold text-2xl bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <span className="font-bold text-2xl bg-gradient-to-r from-primary via-emerald-600 to-teal-600 bg-clip-text text-transparent">
                   Ajao Abdus-samad
                 </span>
               </div>

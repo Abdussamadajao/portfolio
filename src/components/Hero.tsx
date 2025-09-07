@@ -66,17 +66,6 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            {/* Status Badge */}
-            {/* <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-green-500/10 to-emerald-500/10 text-green-600 rounded-full text-sm font-medium border border-green-500/20 backdrop-blur-sm"
-            >
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span>Available for opportunities</span>
-            </motion.div> */}
-
             {/* Main Heading */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -137,7 +126,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 onClick={() => scrollToSection("projects")}
-                className="group px-8 py-4 text-lg font-semibold bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-600/90 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 rounded-2xl"
+                className="group px-8 py-4 text-lg font-semibold bg-gradient-to-r from-primary to-emerald-600 hover:from-primary/90 hover:to-emerald-600/90 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 rounded-2xl"
               >
                 View Projects
                 <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -241,7 +230,7 @@ const Hero = () => {
                   scale: [1, 1.05, 1],
                 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 bg-gradient-to-br from-primary/20 via-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
+                className="absolute inset-0 bg-gradient-to-br from-primary/20 via-emerald-500/20 to-teal-500/20 rounded-full blur-3xl"
               />
 
               {/* Floating Code Elements */}
@@ -252,7 +241,7 @@ const Hero = () => {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute top-8 left-8 w-16 h-16 bg-gradient-to-br from-primary/30 to-blue-500/30 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-primary/20 shadow-lg"
+                className="absolute top-8 left-8 w-16 h-16 bg-gradient-to-br from-primary/30 to-emerald-500/30 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-primary/20 shadow-lg"
               >
                 <Code2 className="h-8 w-8 text-primary" />
               </motion.div>
@@ -297,7 +286,7 @@ const Hero = () => {
                 }}
                 className="absolute inset-0 flex items-center justify-center"
               >
-                <div className="w-32 h-32 bg-gradient-to-br from-primary via-blue-600 to-purple-600 rounded-3xl flex items-center justify-center shadow-2xl">
+                <div className="w-32 h-32 bg-gradient-to-br from-primary via-emerald-600 to-teal-600 rounded-3xl flex items-center justify-center shadow-2xl">
                   <Sparkles className="h-16 w-16 text-white" />
                 </div>
               </motion.div>

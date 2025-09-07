@@ -76,25 +76,25 @@ const Contact = () => {
       name: "LinkedIn",
       icon: FiLinkedin,
       url: "https://linkedin.com/in/ajaoabdussamad",
-      color: "hover:text-blue-400",
+      color: "hover:text-emerald-400",
     },
     {
       name: "Instagram",
       icon: FiInstagram,
       url: "https://www.instagram.com/abdussamadajao/",
-      color: "hover:text-blue-400",
+      color: "hover:text-emerald-400",
     },
     {
       name: "Facebook",
       icon: FiFacebook,
       url: "https://web.facebook.com/abdussamad.ajao/",
-      color: "hover:text-blue-400",
+      color: "hover:text-emerald-400",
     },
     {
       name: "X",
       icon: FaXTwitter,
       url: "https://x.com/AbdussamadAjao",
-      color: "hover:text-blue-400",
+      color: "hover:text-emerald-400",
     },
   ];
 

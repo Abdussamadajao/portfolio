@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Badge } from "./ui/badge";
-import { Card, CardContent } from "./ui/card";
-import { Button } from "./ui/button";
+import { Badge } from "../components/ui/badge";
+import { Card, CardContent } from "../components/ui/card";
+import { Button } from "../components/ui/button";
 import {
   Code,
   Globe,
@@ -16,8 +16,18 @@ import { projects } from "../data";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Projects = () => {
+const ProjectsPage = () => {
   const [_, setHoveredProject] = useState<number | null>(null);
+  const [filter, setFilter] = useState<string>("all");
+
+  const categories = [
+    "all",
+    ...Array.from(new Set(projects.flatMap((p) => p.category))),
+  ];
+  const filteredProjects =
+    filter === "all"
+      ? projects
+      : projects.filter((project) => project.category.includes(filter));
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -44,104 +54,77 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden">
-      {/* Dynamic Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-emerald-50/30 to-teal-50/30 dark:from-slate-950 dark:via-emerald-950/30 dark:to-teal-950/30" />
-
-        {/* Animated geometric shapes */}
+    <div className="min-h-screen bg-background text-foreground pt-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Page Header */}
         <motion.div
-          animate={{
-            rotate: 360,
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-full blur-xl"
-        />
-        <motion.div
-          animate={{
-            rotate: -360,
-            scale: [1, 0.9, 1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 rounded-full blur-xl"
-        />
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/2 left-1/4 w-24 h-24 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-full blur-lg"
-        />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 text-emerald-600 dark:text-emerald-400 rounded-full text-sm font-medium border border-emerald-200/50 dark:border-emerald-800/50 mb-6 backdrop-blur-sm"
+            className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-teal-500/10 text-emerald-600 dark:text-emerald-400 rounded-full text-sm font-medium border border-emerald-200/50 dark:border-emerald-800/50 mb-6 backdrop-blur-sm"
           >
             <Code className="h-4 w-4" />
             <span>Portfolio Showcase</span>
           </motion.div>
 
-          <motion.h2
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6"
           >
-            Featured{" "}
+            All{" "}
             <span className="bg-gradient-to-r from-primary via-emerald-500 to-teal-600 bg-clip-text text-transparent">
               Projects
             </span>
-          </motion.h2>
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-12"
+            className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8"
           >
-            A collection of my recent work showcasing modern web development,
-            innovative solutions, and creative problem-solving
+            A comprehensive collection of my work showcasing modern web
+            development, innovative solutions, and creative problem-solving
           </motion.p>
+        </motion.div>
+        {/* Filter Tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-wrap justify-center gap-2 mb-12"
+        >
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant={filter === category ? "default" : "outline"}
+              size="sm"
+              onClick={() => setFilter(category)}
+              className={`${
+                filter === category ? "bg-primary text-white" : "hover:bg-muted"
+              }`}
+            >
+              {category === "all" ? "All Projects" : category}
+            </Button>
+          ))}
         </motion.div>
 
         {/* Projects Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {projects.slice(0, 3).map((project) => (
+          {filteredProjects.map((project) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
@@ -186,7 +169,7 @@ const Projects = () => {
 
                   {/* Action Buttons */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                    <div className="flex space-x-2">
+                    <div className="flex space-x-3">
                       <Link to={`/projects/${project.id}`}>
                         <Button
                           size="sm"
@@ -224,10 +207,10 @@ const Projects = () => {
                   <div className="space-y-4">
                     {/* Title and Description */}
                     <div>
-                      <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary dark:group-hover:text-primary transition-colors duration-300">
                         {project.name}
                       </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3 max-w-[390px] truncate">
                         {project.description}
                       </p>
                     </div>
@@ -276,6 +259,20 @@ const Projects = () => {
                         <span>2024</span>
                       </div>
                     </div>
+
+                    {/* View Details Link */}
+                    <div className="pt-2">
+                      <Link to={`/projects/${project.id}`}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="w-full group-hover:bg-muted/50 transition-colors"
+                        >
+                          View Full Details
+                          <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -286,32 +283,18 @@ const Projects = () => {
         {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <div className="space-y-6">
-            <div className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 text-emerald-600 dark:text-emerald-400 rounded-full text-sm font-medium border border-emerald-200/50 dark:border-emerald-800/50 backdrop-blur-sm">
-              <Zap className="h-4 w-4" />
-              <span>More exciting projects in development!</span>
-            </div>
-            <div>
-              <Link to="/projects">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                >
-                  View All Projects
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </Button>
-              </Link>
-            </div>
+          <div className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 text-emerald-600 dark:text-emerald-400 rounded-full text-sm font-medium border border-emerald-200/50 dark:border-emerald-800/50 backdrop-blur-sm">
+            <Zap className="h-4 w-4" />
+            <span>More exciting projects in development!</span>
           </div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Projects;
+export default ProjectsPage;

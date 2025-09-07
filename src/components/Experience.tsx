@@ -43,7 +43,7 @@ const Experience = () => {
           text: "40% Patient Engagement",
           color: "text-green-500",
         },
-        { icon: Zap, text: "35% Performance Boost", color: "text-blue-500" },
+        { icon: Zap, text: "35% Performance Boost", color: "text-emerald-500" },
         {
           icon: Users,
           text: "Cross-functional Team",
@@ -78,7 +78,7 @@ const Experience = () => {
           color: "text-green-500",
         },
         { icon: Star, text: "Component Libraries", color: "text-yellow-500" },
-        { icon: Zap, text: "Automated Testing", color: "text-blue-500" },
+        { icon: Zap, text: "Automated Testing", color: "text-emerald-500" },
       ],
     },
   ];
@@ -133,7 +133,7 @@ const Experience = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 text-primary rounded-full text-sm font-medium border border-primary/20 mb-8 backdrop-blur-sm"
+            className="inline-flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-primary/10 via-emerald-500/10 to-teal-500/10 text-primary rounded-full text-sm font-medium border border-primary/20 mb-8 backdrop-blur-sm"
           >
             <Briefcase className="h-5 w-5" />
             <span>Experience & Education</span>
@@ -167,7 +167,7 @@ const Experience = () => {
         {/* Timeline Layout */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-blue-500 to-purple-500 hidden lg:block" />
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-emerald-500 to-teal-500 hidden lg:block" />
 
           <div className="space-y-16">
             {/* Work Experience */}
@@ -188,7 +188,7 @@ const Experience = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium border border-blue-500/20 mb-4"
+                    className="inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 text-emerald-600 dark:text-emerald-400 rounded-full text-sm font-medium border border-emerald-500/20 mb-4"
                   >
                     <Briefcase className="h-4 w-4" />
                     <span>Work Experience</span>
@@ -209,7 +209,7 @@ const Experience = () => {
                           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                             <div className="space-y-2">
                               <div className="flex items-center space-x-3">
-                                <div className="p-2 bg-gradient-to-br from-primary/20 to-blue-500/20 rounded-lg">
+                                <div className="p-2 bg-gradient-to-br from-primary/20 to-emerald-500/20 rounded-lg">
                                   <Building className="h-5 w-5 text-primary" />
                                 </div>
                                 <div>
@@ -231,7 +231,7 @@ const Experience = () => {
                             </div>
 
                             <div className="flex flex-col items-center lg:items-end space-y-2">
-                              <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-primary to-blue-600 text-white border-0">
+                              <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-primary to-emerald-600 text-white border-0">
                                 {job.position}
                               </Badge>
                             </div>
@@ -291,7 +291,7 @@ const Experience = () => {
                           {/* Technologies */}
                           <div className="pt-4">
                             <h4 className="font-semibold text-foreground mb-3 flex items-center space-x-2">
-                              <Zap className="h-5 w-5 text-blue-500" />
+                              <Zap className="h-5 w-5 text-emerald-500" />
                               <span>Technologies Used</span>
                             </h4>
                             <div className="flex flex-wrap gap-2">
@@ -307,7 +307,7 @@ const Experience = () => {
                                   viewport={{ once: true }}
                                 >
                                   <Badge
-                                    variant="secondary"
+                                    variant="outline"
                                     className="px-3 py-1 text-sm font-medium bg-gradient-to-r from-muted/50 to-muted/30 border border-border/30 hover:border-primary/30 transition-colors duration-300"
                                   >
                                     {tech}
