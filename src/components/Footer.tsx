@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
-import { Heart, ArrowUp, Mail, Phone } from "lucide-react";
+import { ArrowUp, Mail, Phone } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiFacebook, FiGithub, FiInstagram, FiLinkedin } from "react-icons/fi";
 const Footer = () => {
