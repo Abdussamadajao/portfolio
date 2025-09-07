@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Badge } from "./ui/badge";
-import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import {
   Download,
@@ -16,7 +15,7 @@ import {
   Award,
   Rocket,
 } from "lucide-react";
-import abdusImage from "../assets/Images/Abdus_samad.jpg";
+import abdusImage from "../assets/Images/akinyemi.jpg";
 
 const About = () => {
   const achievements = [

@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:frontend\" --names \"backend,frontend\" --prefix-colors \"blue,green\"",
     "dev:frontend": "vite",
     "dev:server": "nodemon server.js",
-    "dev:all": "concurrently \"npm run dev:server\" \"npm run dev:frontend\" --names \"backend,frontend\" --prefix-colors \"blue,green\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",

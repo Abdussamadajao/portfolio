@@ -1,16 +1,12 @@
 import { motion } from "framer-motion";
-import { Badge } from "./ui/badge";
 import { Card, CardContent } from "./ui/card";
 import {
   Code2,
-  Palette,
   Zap,
   Database,
-  Globe,
   Smartphone,
   Wrench,
   Layers,
-  Cpu,
   Monitor,
   Server,
   Cloud,
@@ -110,16 +106,16 @@ const Skills = () => {
         { name: "React Router", level: "90", color: "bg-red-500" },
       ],
     },
-    {
-      title: "Design & Prototyping",
-      icon: Palette,
-      color: "from-amber-500 to-orange-500",
-      skills: [
-        { name: "Figma", level: "80", color: "bg-orange-500" },
-        { name: "Adobe XD", level: "75", color: "bg-pink-500" },
-        { name: "Sketch", level: "70", color: "bg-yellow-500" },
-      ],
-    },
+    // {
+    //   title: "Design & Prototyping",
+    //   icon: Palette,
+    //   color: "from-amber-500 to-orange-500",
+    //   skills: [
+    //     { name: "Figma", level: "80", color: "bg-orange-500" },
+    //     { name: "Adobe XD", level: "75", color: "bg-pink-500" },
+    //     { name: "Sketch", level: "70", color: "bg-yellow-500" },
+    //   ],
+    // },
   ];
 
   return (

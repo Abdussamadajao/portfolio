@@ -2,7 +2,6 @@ import {
   SiJavascript,
   SiNextdotjs,
   SiReact,
-  SiReactrouter,
   SiTailwindcss,
   SiTypescript,
   SiGitlab,

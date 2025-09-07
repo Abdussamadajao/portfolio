@@ -114,7 +114,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex flex-wrap gap-3"
             >
-              {features.map((feature, index) => (
+              {features.map((feature) => (
                 <div
                   key={feature.text}
                   className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-muted/50 to-muted/30 rounded-full border border-border/50 backdrop-blur-sm"
